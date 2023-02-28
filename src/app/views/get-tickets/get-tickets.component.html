@@ -1,0 +1,36 @@
+<h1 class="text-2xl font-bold text-right mt-10 mb-10">{{ timeRemaining$ | async | date:'mm:ss' }}</h1>
+<div class="min-h-screenpy-6 flex flex-col justify-center sm:py-12 mb-10">
+    <div class="py-3 sm:max-w-xl sm:mx-auto">
+        <div class="bg-white shadow-lg border-gray-100 max-h-80	 border sm:rounded-3xl p-8 flex space-x-8">
+            <div class="h-48 overflow-visible w-1/2">
+                <img class="rounded-3xl shadow-lg" [src]="(movie$|async)?.imageUrl" alt="">
+            </div>
+            <div class="flex flex-col w-1/2 space-y-4">
+                <div class="flex justify-between items-start">
+                    <h2 class="text-3xl font-bold">{{(movie$|async)?.title}}</h2>
+                    <div *ngIf="(movie$|async)?.isPremiere" class="bg-yellow-400 font-bold rounded-xl p-2">Premier</div>
+                </div>
+                <div>
+                    <div class="text-sm text-gray-400">{{(movie$|async)?.genres}}</div>
+                    <div class="text-sm text-gray-400">{{(movie$|async)?.time}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="max-w-2xl mx-auto mt-10">
+	<label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select ticket type</label>
+        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option selected>Choose a ticket</option>
+        <option [value]="ticket.price" *ngFor="let ticket of tickets$ | async">{{ticket.name}}</option>
+    </select>
+</div>
+
+<h1 class="text-2xl font-bold text-center mt-10 mb-10">Reserve Seat</h1>
+
+<app-seat 
+    [cols]="(showing$|async)?.columns || 0" [rows]="(showing$|async)?.rows || 0"
+    (onSelectionChage)="handleSelectionChage($event)"
+></app-seat>

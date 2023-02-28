@@ -28,10 +28,6 @@ export class LoginComponent implements OnInit {
   ) {
     this.users$ = userSerice.entities$;
     this.loading$ = userSerice.loading$;
-
-    this.users$.subscribe((value) => {
-      console.log(value);
-    })
   }
 
   ngOnInit() {
@@ -53,7 +49,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate([''])
       }
       else this.error = true;
-      console.log(results)
     });
   }
 }

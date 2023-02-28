@@ -6,10 +6,9 @@ import {
 import { Movie } from 'src/app/types/movie.type';
 
 
-
 @Injectable({ providedIn: 'root' })
 export class MovieService extends EntityCollectionServiceBase<Movie> {
     constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
-        super('Movie', serviceElementsFactory);
+        super('Movies', serviceElementsFactory);
     }
 }

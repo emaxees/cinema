@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
-import { MovieService } from 'src/app/services/movie/movie.service';
+import { MovieService } from 'src/app/services/movies/movies.service';
 import { Movie } from 'src/app/types/movie.type';
+
 
 @Component({
   selector: 'app-add-movie',
@@ -9,9 +10,7 @@ import { Movie } from 'src/app/types/movie.type';
   styleUrls: ['./add-movie.component.scss']
 })
 export class AddMovieComponent {
-  constructor(private movieService: MovieService) {
-
-  }
+  constructor(private movieService: MovieService) {}
 
   form = new FormGroup({
     title: new FormControl({ value: '', disabled: false }),
@@ -26,7 +25,18 @@ export class AddMovieComponent {
   });
 
   onSubmit() {
-    const movie = this.form.value;
+    const movie: Movie = {
+      id: new Date().valueOf(),
+      title: this.form.value.title,
+      imageUrl: this.form.value.imageUrl,
+      genres: this.form.value.genres,
+      time: this.form.value.time,
+      ageRestriction: this.form.value.ageRestriction,
+      descriptionShort: this.form.value.descriptionShort,
+      descriptionLong: this.form.value.descriptionLong,
+      duration: this.form.value.duration,
+      isPremiere: this.form.value.isPremiere,
+    };
     this.movieService.add(movie)
   }
 }

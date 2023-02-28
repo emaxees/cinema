@@ -1,0 +1,13 @@
+<div class="seat-selector">
+    <div class="seat-row" *ngFor="let row of rows | range">
+        <span class="row-name">{{ row }}</span>
+        <span 
+            class="seat" 
+            *ngFor="let col of cols | range"
+            [class.reserved]="isReserverd(row, col)"
+            (click)="onSeatSelected(row, col)"
+        >
+            {{ col }}
+        </span>
+    </div>
+</div>

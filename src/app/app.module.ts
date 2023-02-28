@@ -15,10 +15,16 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddMovieComponent } from './views/add-movie/add-movie.component';
+import { MoviesComponent } from './views/movies/movies.component';
+import { MyTicketsComponent } from './views/my-tickets/my-tickets.component';
+import { GetTicketsComponent } from './views/get-tickets/get-tickets.component';
+import { SeatComponent } from './components/seat/seat.component';
+import { RangePipe } from './pipes/range-pipe.pipe';
+import { PrivilegeDirectiveDirective } from './privilege-directive.directive';
 
 const defaultDataServiceConfig: DefaultDataServiceConfig = {
   root: 'https://cinema-json-server.herokuapp.com/',
-  timeout: 6000, // request timeout
+  timeout: 6000,
 };
 
 @NgModule({
@@ -27,7 +33,13 @@ const defaultDataServiceConfig: DefaultDataServiceConfig = {
     LoginComponent,
     IndexComponent,
     LeftSidebarComponent,
-    AddMovieComponent
+    AddMovieComponent,
+    MoviesComponent,
+    MyTicketsComponent,
+    GetTicketsComponent,
+    SeatComponent,
+    RangePipe,
+    PrivilegeDirectiveDirective,
   ],
   imports: [
     BrowserModule,

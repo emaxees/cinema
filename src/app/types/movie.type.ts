@@ -1,5 +1,5 @@
 export interface Movie {
-    // id?: number,
+    id: number,
     title?: string | null | undefined,
     imageUrl?: string | null | undefined,
     genres?: string | null | undefined,

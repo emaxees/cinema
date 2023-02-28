@@ -1,0 +1,33 @@
+.seat-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+  }
+  
+  .seat-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .row-name {
+    margin-right: 10px;
+  }
+  
+  .seat {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 2px solid black;
+    cursor: pointer;
+  }
+  
+  .seat.reserved {
+    background-color: gray;
+    cursor: default;
+  }
