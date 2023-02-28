@@ -15,9 +15,13 @@ export class AuthService {
       localStorage.setItem('token', token);
     }
 
-    public getSessionInfo(): void {
-      const token = localStorage.getItem('token') || '';
-      const user = JSON.parse(atob(token))
-      return user
+    public getSessionInfo(): User | null {
+      try {
+        const token = localStorage.getItem('token') || '';
+        const user = JSON.parse(atob(token))
+        return user
+      } catch {
+        return null
+      }
     }
 }
