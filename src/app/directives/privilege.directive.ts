@@ -1,9 +1,9 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[appPrivilegeDirective]'
+  selector: '[appPrivilege]'
 })
-export class PrivilegeDirectiveDirective {
+export class PrivilegeDirective {
 
   constructor() { }
 

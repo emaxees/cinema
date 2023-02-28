@@ -20,7 +20,7 @@ import { MyTicketsComponent } from './views/my-tickets/my-tickets.component';
 import { GetTicketsComponent } from './views/get-tickets/get-tickets.component';
 import { SeatComponent } from './components/seat/seat.component';
 import { RangePipe } from './pipes/range-pipe.pipe';
-import { PrivilegeDirectiveDirective } from './privilege-directive.directive';
+import { PrivilegeDirective } from './directives/privilege.directive';
 
 const defaultDataServiceConfig: DefaultDataServiceConfig = {
   root: 'https://cinema-json-server.herokuapp.com/',
@@ -39,7 +39,7 @@ const defaultDataServiceConfig: DefaultDataServiceConfig = {
     GetTicketsComponent,
     SeatComponent,
     RangePipe,
-    PrivilegeDirectiveDirective,
+    PrivilegeDirective,
   ],
   imports: [
     BrowserModule,
